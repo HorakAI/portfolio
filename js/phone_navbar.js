@@ -16,6 +16,12 @@ document.addEventListener('DOMContentLoaded', function() {
         navbar.classList.toggle('open');
     });
 
+    hamburger.addEventListener('touchstart', function(e) {
+        e.stopPropagation();
+        overlay.classList.toggle('active');
+        navbar.classList.toggle('open');
+    });
+
     overlay.addEventListener('click', function(e) {
         if (e.target === overlay) closeDrawer();
     });

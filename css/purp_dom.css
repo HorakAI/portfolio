@@ -978,7 +978,7 @@ body, .navbar, .nav-links a, .hero-content, .mode-toggle, .cta-button {
     position: fixed;
     top: 1rem;
     left: 1rem;
-    z-index: 2001;
+    z-index: 3000;
     width: 44px;
     height: 44px;
     background: var(--accent-primary);
@@ -990,6 +990,7 @@ body, .navbar, .nav-links a, .hero-content, .mode-toggle, .cta-button {
     gap: 6px;
     cursor: pointer;
     box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    pointer-events: auto;
 }
 .mobile-hamburger span {
     display: block;
