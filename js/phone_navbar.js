@@ -1,3 +1,5 @@
+console.log('phone_navbar.js loaded');
+
 document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.mobile-hamburger');
     const overlay = document.querySelector('.navbar-overlay');
@@ -11,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     hamburger.addEventListener('click', function(e) {
+        console.log('Hamburger clicked');
         e.stopPropagation();
         overlay.classList.toggle('active');
         navbar.classList.toggle('open');
