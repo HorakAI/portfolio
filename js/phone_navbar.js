@@ -1,29 +1,32 @@
-console.log('phone_navbar.js loaded');
-
-document.addEventListener('DOMContentLoaded', function() {
+function initNavbar() {
     const hamburger = document.querySelector('.mobile-hamburger');
     const overlay = document.querySelector('.navbar-overlay');
     const navbar = document.querySelector('.navbar');
     const navLinks = document.querySelectorAll('.nav-links a');
     const modeToggle = document.querySelector('.mode-toggle');
 
+    console.log('phone_navbar.js loaded');
+
     function closeDrawer() {
         overlay.classList.remove('active');
         navbar.classList.remove('open');
     }
 
-    hamburger.addEventListener('click', function(e) {
-        console.log('Hamburger clicked');
-        e.stopPropagation();
-        overlay.classList.toggle('active');
-        navbar.classList.toggle('open');
-    });
+    if (hamburger) {
+        hamburger.addEventListener('click', function(e) {
+            console.log('Hamburger clicked');
+            e.stopPropagation();
+            overlay.classList.toggle('active');
+            navbar.classList.toggle('open');
+        });
+    } else {
+        console.log('Hamburger button not found!');
+    }
 
     overlay.addEventListener('click', function(e) {
         if (e.target === overlay) closeDrawer();
     });
 
-    // Optional: close on ESC
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') closeDrawer();
     });
@@ -39,7 +42,13 @@ document.addEventListener('DOMContentLoaded', function() {
             closeDrawer();
         });
     }
-});
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initNavbar);
+} else {
+    initNavbar();
+}
 
 function updateNavbarForMobile() {
     const isMobile = window.innerWidth <= 600;
